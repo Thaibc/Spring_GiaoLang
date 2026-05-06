@@ -11,26 +11,10 @@ import java.util.List;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        insertStudent();
+        deleteStudent();
     }
 
-
-//    public static void insertStudent() {
-//        Student student1 = new Student("SE123", "Nguyen Van An", 2001, 8.3);
-//        Student student2 = new Student("SE456", "Nguyen Van Binh", 2003, 9.0);
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.baobao.superapp-PU");
-//
-//        EntityManager em = emf.createEntityManager();
-//        em.getTransaction().begin();
-//        em.persist(student1);
-//        em.persist(student2);
-//        em.getTransaction().commit();
-//        List<Student> studentList = em.createQuery(" * FROM  ", Student.class).getResultList();
-//        for (Student student : studentList) {
-//            System.out.println(student.toString());
-//        }
-//        em.close();
-//    }
+//    Insert Student
 
     public static void insertStudent() {
 //        Student student1 = new Student("SE123", "Nguyen Van An", 2001, 8.3);
@@ -51,5 +35,29 @@ public class Main {
         em.close();
     }
 
+
+//Delete Student
+
+    public static void deleteStudent() {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.baobao.superapp-PU");
+
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Student student3 = em.find(Student.class, "SE333");
+        if (student3 != null) {
+            em.remove(student3);
+        }
+        Student student4 = em.find(Student.class, "SE444");
+        if (student4 != null) {
+            em.remove(student4);
+        }
+        em.getTransaction().commit();
+        List<Student> studentList = em.createQuery("FROM Student", Student.class).getResultList();
+        for (Student student : studentList) {
+            System.out.println(student.toString());
+        }
+        em.close();
+    }
 }
 
