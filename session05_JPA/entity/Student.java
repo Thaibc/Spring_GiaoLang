@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 
-@Entity
+//@Entity
 @Table (name="Students")
 
 public class Student {

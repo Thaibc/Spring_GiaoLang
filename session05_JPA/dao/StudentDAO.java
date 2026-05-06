@@ -1,22 +1,21 @@
-package com.baobao.superapp;
+package com.baobao.superapp.dao;
 
 import com.baobao.superapp.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        insertStudent();
-    }
+@NoArgsConstructor
 
-//    Insert Student
+public class StudentDAO {
 
-    public static void insertStudent() {
+
+    //    Insert Student
+
+    public void insertStudent() {
         Student student1 = new Student("SE123", "Hoài Linh", 2001, 8.3);
         Student student2 = new Student("SE456", "Trấn Thành", 2003, 9.0);
         Student student3 = new Student("SE333", "Trường Giang", 2001, 8.3);
@@ -41,7 +40,7 @@ public class Main {
 
 //Delete Student
 
-    public static void deleteStudent() {
+    public void deleteStudent() {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.baobao.superapp-PU");
 
@@ -69,7 +68,7 @@ public class Main {
 
 //   Find Student
 
-    public static void findStudent() {
+    public void findStudent() {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.baobao.superapp-PU");
 
@@ -85,7 +84,7 @@ public class Main {
     }
 
     //    su dung find() Update
-    public static void findUpdateStudent() {
+    public void findUpdateStudent() {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.baobao.superapp-PU");
 
@@ -103,7 +102,7 @@ public class Main {
     }
 
     //    su dung merge() Update
-    public static void mergeUpdateStudent() {
+    public void mergeUpdateStudent() {
 
 //Neu truyen vao 1 user ko ton tai trong DB thi se tao moi mot user do
 
@@ -116,6 +115,4 @@ public class Main {
         em.close();
         emf.close();
     }
-
 }
-
