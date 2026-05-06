@@ -11,20 +11,22 @@ import java.util.List;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        mergeUpdateStudent();
+        insertStudent();
     }
 
 //    Insert Student
 
     public static void insertStudent() {
-//        Student student1 = new Student("SE123", "Nguyen Van An", 2001, 8.3);
-//        Student student2 = new Student("SE456", "Nguyen Van Binh", 2003, 9.0);
-        Student student3 = new Student("SE333", "Nhat Cuong", 2001, 8.3);
-        Student student4 = new Student("SE444", "Tran Thanh", 2003, 9.0);
+        Student student1 = new Student("SE123", "Hoài Linh", 2001, 8.3);
+        Student student2 = new Student("SE456", "Trấn Thành", 2003, 9.0);
+        Student student3 = new Student("SE333", "Trường Giang", 2001, 8.3);
+        Student student4 = new Student("SE444", "Nhật Cường", 2003, 9.0);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.baobao.superapp-PU");
 
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
+        em.persist(student1);
+        em.persist(student2);
         em.persist(student3);
         em.persist(student4);
         em.getTransaction().commit();

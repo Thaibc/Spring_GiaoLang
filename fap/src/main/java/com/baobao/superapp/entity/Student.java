@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
-import org.hibernate.annotations.Nationalized;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,10 +15,9 @@ import org.hibernate.annotations.Nationalized;
 
 public class Student {
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID",columnDefinition = "CHAR(8)")
     private String Id;
-    @Column(name = "Name", nullable = false,length = 200)
-    @Nationalized
+    @Column(name = "Name",columnDefinition = "NVARCHAR(200)", nullable = false)
     private String name;
     @Column(name="YOB",nullable=false)
     private int yob;
